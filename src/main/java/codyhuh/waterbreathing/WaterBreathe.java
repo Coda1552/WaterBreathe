@@ -26,7 +26,7 @@ public class WaterBreathe {
         Player player = e.getEntity();
         ItemStack item = player.getItemInHand(e.getHand());
 
-        if (item.is(Items.HEART_OF_THE_SEA) && e.getTarget() instanceof LivingEntity living && !living.hasEffect(MobEffects.WATER_BREATHING)) {
+        if (item.is(Items.HEART_OF_THE_SEA) && e.getTarget() instanceof LivingEntity living && !living.hasEffect(MobEffects.WATER_BREATHING) && !(living instanceof Player)) {
             living.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, -1, 0, true, false));
             living.addEffect(new MobEffectInstance(MobEffects.GLOWING, 20, 0, true, false));
             living.playSound(SoundEvents.CONDUIT_ACTIVATE, 0.5F, 1.0F);
